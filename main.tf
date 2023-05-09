@@ -1,9 +1,9 @@
-resource "azurerm_resource_group" "${var.resourcegroupname}" {
+resource "azurerm_resource_group" "example" {
   name     = var.resourcegroupname
   location = var.location
 }
 
-resource "azurerm_app_service_plan" "${var.resourcegroupname}" {
+resource "azurerm_app_service_plan" "example" {
   name                = "${var.name}-asp"
   location            = var.location
   resource_group_name = var.resourcegroupname
@@ -13,7 +13,7 @@ resource "azurerm_app_service_plan" "${var.resourcegroupname}" {
   }
 }
 
-resource "azurerm_app_service" "${var.resourcegroupname}" {
+resource "azurerm_app_service" "example" {
   name                = var.name
   location            = var.location
   resource_group_name = var.resourcegroupname
