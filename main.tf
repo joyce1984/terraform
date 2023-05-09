@@ -1,3 +1,13 @@
+variable "name" {
+  type = string
+}
+variable "resourcegroupname" {
+  type = string
+}
+variable "location" {
+  type = string
+}
+
 resource "azurerm_resource_group" "example" {
   name     = var.resourcegroupname
   location = var.location
