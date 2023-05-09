@@ -21,6 +21,10 @@ resource "azurerm_app_service_plan" "example" {
     tier = "Standard"
     size = "S1"
   }
+  
+   depends_on = [
+    azurerm_resource_group.example
+  ]
 }
 
 resource "azurerm_app_service" "example" {
@@ -32,6 +36,10 @@ resource "azurerm_app_service" "example" {
   site_config {
     dotnet_framework_version = "v5.0"
   }
+  
+   depends_on = [
+    azurerm_app_service_plan.example
+  ]
 }
 
 output "app_service_id" {
