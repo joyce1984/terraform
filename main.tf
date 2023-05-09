@@ -1,6 +1,11 @@
+resource "azurerm_resource_group" "${var.resourcegroupname}" {
+  name     = var.resourcegroupname
+  location = var.location
+}
+
 resource "azurerm_app_service_plan" "${var.resourcegroupname}" {
   name                = "${var.name}-asp"
-  location            = "uksouth"
+  location            = var.location
   resource_group_name = var.resourcegroupname
   sku {
     tier = "Standard"
@@ -10,7 +15,7 @@ resource "azurerm_app_service_plan" "${var.resourcegroupname}" {
 
 resource "azurerm_app_service" "${var.resourcegroupname}" {
   name                = var.name
-  location            = "uksouth"
+  location            = var.location
   resource_group_name = var.resourcegroupname
   app_service_plan_id = azurerm_app_service_plan.example.id
 
